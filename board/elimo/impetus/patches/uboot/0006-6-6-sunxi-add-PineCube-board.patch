@@ -1,0 +1,39 @@
+diff --git a/board/sunxi/MAINTAINERS b/board/sunxi/MAINTAINERS
+index 1180b86db3..5c53b2c878 100644
+--- a/board/sunxi/MAINTAINERS
++++ b/board/sunxi/MAINTAINERS
+@@ -440,6 +440,11 @@ M:	Vasily Khoruzhick <anarsoul@gmail.com>
+ S:	Maintained
+ F:	configs/pinebook_defconfig
+ 
++PINECUBE BOARD:
++M:	Icenowy Zheng <icenowy@aosc.io>
++S:	Maintained
++F:	configs/pinecube_defconfig
++
+ PINE64 BOARDS
+ M:	Andre Przywara <andre.przywara@arm.com>
+ S:	Maintained
+diff --git a/configs/pinecube_defconfig b/configs/pinecube_defconfig
+new file mode 100644
+index 0000000000..107562ee49
+--- /dev/null
++++ b/configs/pinecube_defconfig
+@@ -0,0 +1,17 @@
++CONFIG_ARM=y
++CONFIG_ARCH_SUNXI=y
++CONFIG_SPL=y
++CONFIG_MACH_SUN8I_V3S=y
++CONFIG_SUNXI_DRAM_DDR3_1333=y
++CONFIG_DRAM_CLK=504
++CONFIG_DRAM_ODT_EN=y
++CONFIG_I2C0_ENABLE=y
++CONFIG_DEFAULT_DEVICE_TREE="sun8i-s3-pinecube"
++CONFIG_SPL_I2C_SUPPORT=y
++# CONFIG_NETDEVICES is not set
++CONFIG_AXP209_POWER=y
++CONFIG_AXP_DCDC2_VOLT=1250
++CONFIG_AXP_DCDC3_VOLT=3300
++CONFIG_AXP_ALDO3_VOLT_SLOPE_08=y
++CONFIG_AXP_ALDO3_INRUSH_QUIRK=y
++CONFIG_CONS_INDEX=3
