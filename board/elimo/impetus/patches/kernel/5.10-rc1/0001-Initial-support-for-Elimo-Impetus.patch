@@ -71,7 +71,7 @@ index 000000000000..516840d87404
 +
 diff --git a/arch/arm/boot/dts/sun8i-s3-elimo-initium.dts b/arch/arm/boot/dts/sun8i-s3-elimo-initium.dts
 new file mode 100644
-index 000000000000..e3933c930278
+index 000000000000..d56e805055bf
 --- /dev/null
 +++ b/arch/arm/boot/dts/sun8i-s3-elimo-initium.dts
 @@ -0,0 +1,29 @@
@@ -84,7 +84,7 @@ index 000000000000..e3933c930278
 +#include "sun8i-s3-elimo-impetus.dtsi"
 +
 +/ {
-+	model = "Elimo Impetus SBC";
++	model = "Elimo Initium";
 +	compatible = "elimo,initium", "elimo,impetus", "sochip,s3", 
 +            "allwinner,sun8i-s3";
 +
