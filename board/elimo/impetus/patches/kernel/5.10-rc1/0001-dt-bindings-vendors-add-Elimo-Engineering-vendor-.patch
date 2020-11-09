@@ -1,0 +1,32 @@
+From 7dde5986a2eab9f81d3e11587518723c53633e3f Mon Sep 17 00:00:00 2001
+In-Reply-To: <20201029022000.601913-1-matteo.scordino@gmail.com>
+References: <20201029022000.601913-1-matteo.scordino@gmail.com>
+From: Matteo Scordino <matteo.scordino@gmail.com>
+Date: Thu, 29 Oct 2020 00:46:06 +0000
+Subject: [PATCH v2 1/6] dt-bindings: vendors: add Elimo Engineering vendor
+ prefix
+
+Add elimo as vendor prefix for dt bindings, since we are adding a dtsi
+for a SoM and a dts for an SBC
+
+Signed-off-by: Matteo Scordino <matteo.scordino@gmail.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 2735be1a8470..b877a3516277 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -319,6 +319,8 @@ patternProperties:
+     description: Elgin S/A.
+   "^elida,.*":
+     description: Shenzhen Elida Technology Co., Ltd.
++  "^elimo,.*":
++    description: Elimo Engineering Ltd.
+   "^embest,.*":
+     description: Shenzhen Embest Technology Co., Ltd.
+   "^emlid,.*":
+-- 
+2.20.1
+

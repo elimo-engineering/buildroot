@@ -1,0 +1,34 @@
+From 174334d7593b2e94baf45b9425a7891f59bb9ee5 Mon Sep 17 00:00:00 2001
+In-Reply-To: <20201029022000.601913-1-matteo.scordino@gmail.com>
+References: <20201029022000.601913-1-matteo.scordino@gmail.com>
+From: Matteo Scordino <matteo.scordino@gmail.com>
+Date: Fri, 30 Oct 2020 22:56:08 +0000
+Subject: [PATCH v2 6/6] ARM: dts: sunxi: align pinecube compatible property to
+ other S3 boards
+
+The compatible string in the Pine64 Pincube dts diverges from the ones
+used in other S3 based boards, like the LicheePi and the Elimo Impetus
+and Initium. Discussion on LKML decided the PineCube should align to the
+others.
+
+Signed-off-by: Matteo Scordino <matteo.scordino@gmail.com>
+---
+ arch/arm/boot/dts/sun8i-s3-pinecube.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/sun8i-s3-pinecube.dts b/arch/arm/boot/dts/sun8i-s3-pinecube.dts
+index 9bab6b7f4014..4aa0ee897a0a 100644
+--- a/arch/arm/boot/dts/sun8i-s3-pinecube.dts
++++ b/arch/arm/boot/dts/sun8i-s3-pinecube.dts
+@@ -10,7 +10,7 @@
+ 
+ / {
+ 	model = "PineCube IP Camera";
+-	compatible = "pine64,pinecube", "allwinner,sun8i-s3";
++	compatible = "pine64,pinecube", "sochip,s3", "allwinner,sun8i-v3";
+ 
+ 	aliases {
+ 		serial0 = &uart2;
+-- 
+2.20.1
+
