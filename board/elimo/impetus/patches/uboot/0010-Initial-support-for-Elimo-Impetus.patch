@@ -74,10 +74,10 @@ index 0000000000..516840d874
 +
 diff --git a/arch/arm/dts/sun8i-s3-elimo-initium.dts b/arch/arm/dts/sun8i-s3-elimo-initium.dts
 new file mode 100644
-index 0000000000..e2f06de228
+index 0000000000..91920cc4b0
 --- /dev/null
 +++ b/arch/arm/dts/sun8i-s3-elimo-initium.dts
-@@ -0,0 +1,29 @@
+@@ -0,0 +1,30 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (C) 2020 Matteo Scordino <matteo@elimo.io>
@@ -94,6 +94,7 @@ index 0000000000..e2f06de228
 +	aliases {
 +		serial0 = &uart0;
 +        serial1 = &uart1;
++        ethernet0 = &emac;
 +	};
 +
 +	chosen {
