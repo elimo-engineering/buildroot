@@ -1,0 +1,6 @@
+!/bin/sh
+# load modules mentioned in /etc/modules.d
+
+for MODULE in $(ls /etc/modules.d); do
+  modprobe $MODULE
+done
