@@ -23,7 +23,7 @@ UHD_CONF_OPTS = \
 	-DRUNTIME_PYTHON_EXECUTABLE=/usr/bin/python \
 	-DENABLE_C_API=ON \
 	-DENABLE_DOXYGEN=OFF \
-	-DENABLE_DPKD=OFF \
+	-DENABLE_DPDK=OFF \
 	-DENABLE_LIBUHD=ON \
 	-DENABLE_N230=OFF \
 	-DENABLE_N300=OFF \
@@ -37,6 +37,17 @@ UHD_CONF_OPTS = \
 	-DENABLE_USRP2=OFF \
 	-DENABLE_UTILS=OFF \
 	-DENABLE_X300=OFF
+
+# As soon as architecture is ARM, uhd will try to use NEON.
+# But not all ARM cores have NEON support.
+# When CPU support NEON -mfpu=neon must be added to CXX_FLAGS
+ifeq ($(BR2_ARM_CPU_HAS_NEON),y)
+UHD_CONF_OPTS += -DCMAKE_CXX_FLAGS="$(TARGET_CXXFLAGS) -mfpu=neon"
+UHD_CONF_OPTS += -DNEON_SIMD_ENABLE=ON
+else
+UHD_CONF_OPTS += -Dhave_mfpu_neon=0
+UHD_CONF_OPTS += -DNEON_SIMD_ENABLE=OFF
+endif
 
 ifeq ($(BR2_PACKAGE_ORC),y)
 UHD_DEPENDENCIES += orc

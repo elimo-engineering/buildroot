@@ -79,7 +79,7 @@ QT5BASE_DEPENDENCIES += gcnano-binaries
 else ifeq ($(BR2_PACKAGE_TI_SGX_LIBGBM),y)
 QT5BASE_CONFIGURE_OPTS += -gbm
 QT5BASE_DEPENDENCIES += ti-sgx-libgbm
-else ifeq ($(BR2_PACKAGE_IMX_GPU_VIV),y)
+else ifeq ($(BR2_PACKAGE_IMX_GPU_VIV_OUTPUT_WL),y)
 QT5BASE_CONFIGURE_OPTS += -gbm
 QT5BASE_DEPENDENCIES += imx-gpu-viv
 else
@@ -252,6 +252,12 @@ QT5BASE_CONFIGURE_OPTS += -journald
 QT5BASE_DEPENDENCIES += systemd
 else
 QT5BASE_CONFIGURE_OPTS += -no-journald
+endif
+
+ifeq ($(BR2_PACKAGE_QT5BASE_SYSLOG),y)
+QT5BASE_CONFIGURE_OPTS += -syslog
+else
+QT5BASE_CONFIGURE_OPTS += -no-syslog
 endif
 
 ifeq ($(BR2_PACKAGE_IMX_GPU_VIV),y)

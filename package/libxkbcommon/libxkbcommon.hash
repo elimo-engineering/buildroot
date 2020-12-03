@@ -1,5 +1,5 @@
-# From https://lists.freedesktop.org/archives/wayland-devel/2020-September/041609.html
-sha256  ab68b25341c99f2218d7cf3dad459c1827f411219901ade05bbccbdb856b6c8d  libxkbcommon-1.0.1.tar.xz
+# From https://lists.freedesktop.org/archives/wayland-devel/2020-November/041660.html
+sha256  a2202f851e072b84e64a395212cbd976ee18a8ee602008b0bad02a13247dbc52  libxkbcommon-1.0.3.tar.xz
 
 # License file:
 sha256  086caee279449369d41c1157911ec7696e707b93feba7280de757d3c470b2dfb  LICENSE
