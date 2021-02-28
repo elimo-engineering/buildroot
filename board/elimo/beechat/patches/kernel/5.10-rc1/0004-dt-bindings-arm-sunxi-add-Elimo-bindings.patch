@@ -1,0 +1,41 @@
+From 81fc72ed11e8fa57e8252d7d746671b95038208d Mon Sep 17 00:00:00 2001
+In-Reply-To: <20201029022000.601913-1-matteo.scordino@gmail.com>
+References: <20201029022000.601913-1-matteo.scordino@gmail.com>
+From: Matteo Scordino <matteo.scordino@gmail.com>
+Date: Wed, 28 Oct 2020 20:04:28 +0000
+Subject: [PATCH v2 4/6] dt-bindings: arm: sunxi: add Elimo bindings
+
+Document board compatible names for Elimo Engineering Impetus and Initium
+
+Signed-off-by: Matteo Scordino <matteo.scordino@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index 0f23133672a3..ef2ce3bd2bed 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -201,6 +201,19 @@ properties:
+           - const: dserve,dsrv9703c
+           - const: allwinner,sun4i-a10
+ 
++      - description: Elimo Engineering Impetus SoM
++        items:
++          - const: elimo,impetus
++          - const: sochip,s3
++          - const: allwinner,sun8i-v3
++
++      - description: Elimo Engineering Initium
++        items:
++          - const: elimo,initium
++          - const: elimo,impetus
++          - const: sochip,s3
++          - const: allwinner,sun8i-v3
++
+       - description: Empire Electronix D709 Tablet
+         items:
+           - const: empire-electronix,d709
+-- 
+2.20.1
+

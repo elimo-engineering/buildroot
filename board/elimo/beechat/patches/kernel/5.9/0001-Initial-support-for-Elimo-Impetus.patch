@@ -1,0 +1,86 @@
+diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
+index 4572db3fa5ae..f8e87f39d42e 100644
+--- a/arch/arm/boot/dts/Makefile
++++ b/arch/arm/boot/dts/Makefile
+@@ -1194,6 +1194,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
+ 	sun8i-r16-parrot.dtb \
+ 	sun8i-r40-bananapi-m2-ultra.dtb \
+ 	sun8i-s3-lichee-zero-plus.dtb \
++	sun8i-s3-elimo-impetus-initium.dtb \
+ 	sun8i-t3-cqa3t-bv3.dtb \
+ 	sun8i-v3s-licheepi-zero.dtb \
+ 	sun8i-v3s-licheepi-zero-dock.dtb \
+diff --git a/arch/arm/boot/dts/sun8i-s3-elimo-impetus-initium.dts b/arch/arm/boot/dts/sun8i-s3-elimo-impetus-initium.dts
+new file mode 100644
+index 000000000000..4db6371b8caf
+--- /dev/null
++++ b/arch/arm/boot/dts/sun8i-s3-elimo-impetus-initium.dts
+@@ -0,0 +1,68 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (C) 2020 Matteo Scordino <matteo@elimo.io>
++ * Copyright (C) 2016 Icenowy Zheng <icenowy@aosc.xyz>
++ */
++
++/dts-v1/;
++#include "sun8i-v3.dtsi"
++#include "sunxi-common-regulators.dtsi"
++
++/ {
++	model = "Elimo Impetus+Initium";
++	compatible = "elimo,impetus-initium", "elimo,impetus", "sochip,s3", 
++            "allwinner,sun8i-s3";
++
++	aliases {
++		serial0 = &uart0;
++        serial1 = &uart1;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++    
++    soc {
++    pio: pinctrl@1c20800 {
++        uart1_pg_pins: uart1-pg-pins {
++            pins = "PG6", "PG7";
++        	function = "uart1";
++        };
++    };
++};
++};
++
++&mmc0 {
++	broken-cd;
++	bus-width = <4>;
++	vmmc-supply = <&reg_vcc3v3>;
++	status = "okay";
++};
++
++&uart0 {
++	pinctrl-0 = <&uart0_pb_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&uart1 {
++	pinctrl-0 = <&uart1_pg_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};	
++
++&usb_otg {
++	dr_mode = "otg";
++	status = "okay";
++};
++
++&usbphy {
++	usb0_id_det-gpio = <&pio 5 6 GPIO_ACTIVE_HIGH>;
++	status = "okay";
++};
++
++/* needs a specific patch (TBD, can import from pinecube)
++ *&emac {
++ *	status = "okay";
++ *};
++ */
