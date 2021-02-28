@@ -1,0 +1,13 @@
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/sdio.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/sdio.c
+index 99987a789e7e..157dfaaaeace 100644
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/sdio.c
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/sdio.c
+@@ -311,7 +311,7 @@ struct rte_console {
+  * max out at a 1 second (1000000us).
+  */
+ #undef PMU_MAX_TRANSITION_DLY
+-#define PMU_MAX_TRANSITION_DLY 1000000
++#define PMU_MAX_TRANSITION_DLY 10000000
+ 
+ /* Value for ChipClockCSR during initial setup */
+ #define BRCMF_INIT_CLKCTL1	(SBSDIO_FORCE_HW_CLKREQ_OFF |	\

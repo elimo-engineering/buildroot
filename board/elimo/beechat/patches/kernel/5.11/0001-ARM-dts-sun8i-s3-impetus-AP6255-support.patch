@@ -1,0 +1,48 @@
+--- a/arch/arm/boot/dts/sun8i-s3-elimo-impetus.dtsi	2020-11-30 18:09:22.506534348 +0000
++++ b/arch/arm/boot/dts/sun8i-s3-elimo-impetus.dtsi	2020-11-30 18:18:38.828467893 +0000
+@@ -19,6 +19,14 @@
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
++ 
++	wifi_pwrseq: mmc1_pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		reset-gpios = <&pio 4 19 GPIO_ACTIVE_LOW>; /* PE19 */
++		clocks = <&rtc 1>;
++		//clocks = <&osc32k>;
++		clock-names = "ext_clock";
++	};   
+ };
+ 
+ &mmc0 {
+@@ -28,6 +36,25 @@
+ 	status = "okay";
+ };
+ 
++&mmc1 {
++	vmmc-supply = <&reg_vcc3v3>;
++	vqmmc-supply = <&reg_vcc3v3>;
++	mmc-pwrseq = <&wifi_pwrseq>;
++	bus-width = <4>;
++	non-removable;
++	wakeup-source;
++	keep-power-in-suspend;
++	status = "okay";
++
++	brcmf: wifi@1 {
++		reg = <1>;
++		compatible = "brcm,bcm4329-fmac";
++		interrupt-parent = <&pio>;
++		interrupts = <1 11 IRQ_TYPE_LEVEL_HIGH>; /* PB11 / EINT11 */
++		interrupt-names = "host-wake";
++	};
++};
++
+ &uart0 {
+ 	pinctrl-0 = <&uart0_pb_pins>;
+ 	pinctrl-names = "default";
+@@ -49,3 +76,4 @@
+ 	usb0_id_det-gpio = <&pio 5 6 GPIO_ACTIVE_HIGH>;
+ 	status = "okay";
+ };
++
