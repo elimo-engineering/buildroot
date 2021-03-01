@@ -74,10 +74,10 @@ index 0000000000..516840d874
 +
 diff --git a/arch/arm/dts/sun8i-s3-elimo-initium.dts b/arch/arm/dts/sun8i-s3-elimo-initium.dts
 new file mode 100644
-index 0000000000..91920cc4b0
+index 0000000000..519d44414e
 --- /dev/null
 +++ b/arch/arm/dts/sun8i-s3-elimo-initium.dts
-@@ -0,0 +1,30 @@
+@@ -0,0 +1,48 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (C) 2020 Matteo Scordino <matteo@elimo.io>
@@ -88,7 +88,7 @@ index 0000000000..91920cc4b0
 +
 +/ {
 +	model = "Elimo Initium";
-+	compatible = "elimo,initium", "elimo,impetus", "sochip,s3", 
++	compatible = "elimo,initium", "elimo,impetus", "sochip,s3",
 +            "allwinner,sun8i-s3";
 +
 +	aliases {
@@ -103,11 +103,29 @@ index 0000000000..91920cc4b0
 +};
 +
 +&emac {
-+    phy-handle = <&int_mii_phy>;
-+    phy-mode = "mii";
-+    status = "okay";
++	phy-handle = <&int_mii_phy>;
++	phy-mode = "mii";
++	status = "okay";
 +};
 +
++&pio {
++	mmc2_pins: mmc2-pins {
++		pins = "PC0", "PC1", "PC2", "PC3",
++		       "PC4", "PC5";
++		function = "mmc2";
++		drive-strength = <30>;
++		bias-pull-up;
++    };
++};
++
++&mmc2{
++	broken-cd;
++	bus-width = <4>;
++	vmmc-supply = <&reg_vcc3v3>;
++    pinctrl-names = "default";
++	pinctrl-0 = <&mmc2_pins>;
++    status = "okay";
++};
 diff --git a/arch/arm/dts/sun8i-v3.dtsi b/arch/arm/dts/sun8i-v3.dtsi
 index ca4672ed2e..79d15e7fce 100644
 --- a/arch/arm/dts/sun8i-v3.dtsi
