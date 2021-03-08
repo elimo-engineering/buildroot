@@ -1,0 +1,15 @@
+diff --git a/arch/arm/boot/dts/sun8i-s3-elimo-initium.dts b/arch/arm/boot/dts/sun8i-s3-elimo-initium.dts
+index 039677c2cc65..a376215a5e0a 100644
+--- a/arch/arm/boot/dts/sun8i-s3-elimo-initium.dts
++++ b/arch/arm/boot/dts/sun8i-s3-elimo-initium.dts
+@@ -27,3 +27,10 @@
+ 	phy-mode = "mii";
+ 	status = "okay";
+ };
++
++&codec {
++    allwinner,audio-routing =
++        "Speaker", "LINEOUT",
++        "LINEIN", "Line In";
++    status = "okay";
++};
