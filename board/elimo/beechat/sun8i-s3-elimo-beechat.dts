@@ -35,8 +35,8 @@
 
 &pio {
 	mmc2_pins: mmc2-pins {
-		pins = "PC0", "PC1", "PC2", "PC3",
-		       "PC4", "PC5";
+		pins = "PC0", "PC1", "PC3", "PC4",
+		       "PC5", "PC6";
 		function = "mmc2";
 		drive-strength = <30>;
 		bias-pull-up;
@@ -49,5 +49,6 @@
 	vmmc-supply = <&reg_vcc3v3>;
     pinctrl-names = "default";
 	pinctrl-0 = <&mmc2_pins>;
+    cd-gpios = <&pio 2 7 GPIO_ACTIVE_LOW>;  /* PC7 for card detect */
     status = "okay";
 };
