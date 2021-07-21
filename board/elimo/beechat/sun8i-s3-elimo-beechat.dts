@@ -51,3 +51,12 @@
 	pinctrl-0 = <&mmc2_pins>;
     status = "okay";
 };
+
+&usb_otg {
+    dr_mode = "peripheral";
+    status = "okay";
+};
+
+&usbphy {
+    status = "okay";
+};
